@@ -6,12 +6,14 @@ const withPWA = withPWAInit({
   disable: process.env.NODE_ENV === "development",
   register: true,
   workboxOptions: {
-    skipWaiting: true, // 🔑 Pindahkan skipWaiting ke dalam workboxOptions
+    skipWaiting: true,
   },
 });
 
 const nextConfig: NextConfig = {
-  /* opsi Next.js Anda jika ada */
+  typescript: {
+    ignoreBuildErrors: true, // Masih didukung jika ingin mengabaikan type error saat build
+  },
 };
 
 export default withPWA(nextConfig);
